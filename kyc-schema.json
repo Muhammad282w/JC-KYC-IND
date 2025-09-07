@@ -1,91 +1,17 @@
 {
-  "form_metadata": {
-    "title": "Know Your Customer (KYC) Form - Individual",
-    "title_ar": "نموذج معرفة العميل - فرد",
-    "company": "Joa Capital",
-    "company_ar": "شركة جوا المالية",
-    "license": "CMA License 21219-02",
-    "version": "2023",
-    "form_type": "individual_kyc"
-  },
+  "form_title": "Know Your Customer (KYC) Form - Individual",
+  "form_title_ar": "نموذج معرفة العميل - فرد",
   "sections": {
-    "client_file_info": {
-      "title": "Client File Information",
-      "title_ar": "معلومات ملف العميل",
-      "order": 1,
-      "fields": {
-        "client_type": {
-          "type": "dropdown",
-          "label": "Client Type",
-          "label_ar": "نوع العميل",
-          "required": true,
-          "options": [{"value": "individual", "label": "Individual", "label_ar": "فرد"}]
-        },
-        "client_name": {
-          "type": "text",
-          "label": "Client Name",
-          "label_ar": "أسم العميل",
-          "required": true
-        },
-        "client_file_number": {
-          "type": "text",
-          "label": "Client File Number",
-          "label_ar": "رقم ملف العميل",
-          "required": true
-        },
-        "investment_account_number": {
-          "type": "text",
-          "label": "Client Investment Account Number",
-          "label_ar": "رقم الحساب الاستثماري للعميل",
-          "required": true
-        },
-        "account_currency": {
-          "type": "checkbox",
-          "label": "Account Currencies",
-          "label_ar": "عملة الحساب",
-          "required": true,
-          "options": [
-            {"value": "sar", "label": "Saudi Riyal", "label_ar": "الريال السعودي"},
-            {"value": "usd", "label": "US Dollar", "label_ar": "دولار أمريكي"},
-            {"value": "other", "label": "Other", "label_ar": "أخرى"}
-          ]
-        },
-        "other_currency": {
-          "type": "text",
-          "label": "Other Currency (Please specify)",
-          "label_ar": "عملة أخرى (يرجى التحديد)",
-          "required": false,
-          "conditional_on": "account_currency includes other"
-        },
-        "portfolio_type": {
-          "type": "radio",
-          "label": "Portfolio Type",
-          "label_ar": "نوع المحفظة",
-          "required": true,
-          "options": [
-            {"value": "local_securities", "label": "Portfolio of local securities", "label_ar": "محفظة أوراق مالية محلية"},
-            {"value": "foreign_securities", "label": "Foreign securities portfolio", "label_ar": "محفظة أوراق مالية أجنبية"},
-            {"value": "investment_funds", "label": "Investment funds portfolio", "label_ar": "استثمار صناديق"}
-          ]
-        }
-      }
-    },
     "basic_info": {
       "title": "Basic Information",
       "title_ar": "البيانات الأساسية",
-      "order": 2,
       "fields": {
         "title": {
           "type": "dropdown",
           "label": "Title",
           "label_ar": "اللقب",
           "required": true,
-          "options": [
-            {"value": "mr", "label": "Mr.", "label_ar": "السيد"},
-            {"value": "mrs", "label": "Mrs.", "label_ar": "السيدة"},
-            {"value": "miss", "label": "Miss", "label_ar": "الآنسة"},
-            {"value": "other", "label": "Other", "label_ar": "آخر"}
-          ]
+          "options": ["Mr.", "Mrs.", "Miss", "Other"]
         },
         "first_name_ar": {
           "type": "text",
@@ -228,7 +154,6 @@
     "contact_info": {
       "title": "Contact Details and Correspondence",
       "title_ar": "بيانات الاتصال والمراسلة",
-      "order": 3,
       "fields": {
         "national_address_name": {
           "type": "text",
@@ -324,7 +249,6 @@
     "beneficial_owner": {
       "title": "Beneficial Owner of The Account",
       "title_ar": "المستفيد الحقيقي من الحساب",
-      "order": 4,
       "fields": {
         "is_beneficial_owner": {
           "type": "radio",
@@ -363,10 +287,113 @@
         }
       }
     },
+    "related_party_info": {
+      "title": "Related Party Information (Form 2)",
+      "title_ar": "معلومات الأطراف ذوي العلاقة (نموذج 2)",
+      "conditional_on": "beneficial_owner.is_beneficial_owner=no",
+      "fields": {
+        "related_party_name": {
+          "type": "text",
+          "label": "Name",
+          "label_ar": "الاسم الرباعي",
+          "required": false
+        },
+        "relationship": {
+          "type": "text",
+          "label": "Relationship",
+          "label_ar": "صلة القرابة",
+          "required": false
+        },
+        "related_party_id": {
+          "type": "text",
+          "label": "Saudi ID/Iqama No.",
+          "label_ar": "رقم الهوية أو الإقامة",
+          "required": false
+        },
+        "related_party_expiry": {
+          "type": "date",
+          "label": "Expiry Date",
+          "label_ar": "تاريخ الانتهاء",
+          "required": false
+        },
+        "related_party_national_address": {
+          "type": "text",
+          "label": "National Address",
+          "label_ar": "العنوان الوطني",
+          "required": false
+        },
+        "related_party_birth_date": {
+          "type": "date",
+          "label": "Birth Date",
+          "label_ar": "تاريخ الميلاد",
+          "required": false
+        },
+        "related_party_mobile": {
+          "type": "text",
+          "label": "Mobile Number",
+          "label_ar": "رقم الجوال",
+          "required": false
+        },
+        "related_party_phone": {
+          "type": "text",
+          "label": "Telephone Number",
+          "label_ar": "رقم الهاتف",
+          "required": false
+        },
+        "related_party_email": {
+          "type": "email",
+          "label": "Email",
+          "label_ar": "البريد الإلكتروني",
+          "required": false
+        }
+      }
+    },
+    "non_resident_address": {
+      "title": "Non-Resident Address (Form 1)",
+      "title_ar": "عنوان غير المقيم (نموذج 1)",
+      "conditional_on": "beneficial_owner.is_non_resident=yes",
+      "fields": {
+        "foreign_building_no": {
+          "type": "text",
+          "label": "Building No.",
+          "label_ar": "رقم المبنى",
+          "required": false
+        },
+        "foreign_secondary_no": {
+          "type": "text",
+          "label": "Secondary No.",
+          "label_ar": "الرقم الفرعي",
+          "required": false
+        },
+        "foreign_postal_code": {
+          "type": "text",
+          "label": "Postal Code",
+          "label_ar": "الرمز البريدي",
+          "required": false
+        },
+        "foreign_po_box": {
+          "type": "text",
+          "label": "PO Box",
+          "label_ar": "صندوق البريد",
+          "required": false
+        },
+        "foreign_city": {
+          "type": "text",
+          "label": "City",
+          "label_ar": "المدينة",
+          "required": false
+        },
+        "foreign_country": {
+          "type": "text",
+          "label": "Country",
+          "label_ar": "الدولة",
+          "required": false
+        }
+      }
+    },
     "tax_compliance": {
       "title": "Self-Certification & Declaration Form (FATCA & CRS)",
       "title_ar": "الإبلاغ الذاتي (قانون الامتثال الضريبي للحسابات الأجنبية ومعيار شهادة إقرار المشترك)",
-      "order": 5,
       "fields": {
         "is_us_person": {
           "type": "radio",
@@ -417,22 +444,19 @@
     "us_tax_info": {
       "title": "US Tax Information (Form 3)",
       "title_ar": "معلومات الضريبة الأمريكية (نموذج 3)",
-      "order": 6,
       "conditional_on": "tax_compliance.is_us_person=yes",
       "fields": {
         "ssn": {
           "type": "text",
           "label": "Social Security Number (SSN)",
           "label_ar": "رقم الضمان الاجتماعي",
-          "required": false,
-          "pattern": "^[0-9]{3}-[0-9]{2}-[0-9]{4}$"
+          "required": false
         },
         "itin": {
           "type": "text",
           "label": "Individual Taxpayer Identification Number (ITIN)",
           "label_ar": "رقم تعريف المكلف",
-          "required": false,
-          "pattern": "^9[0-9]{2}-[0-9]{2}-[0-9]{4}$"
+          "required": false
         },
         "atin": {
           "type": "text",
@@ -445,7 +469,6 @@
     "tax_residency_info": {
       "title": "Tax Residency Information",
       "title_ar": "معلومات الإقامة الضريبية",
-      "order": 7,
       "fields": {
         "tax_residence_country_1": {
           "type": "text",
@@ -496,10 +519,89 @@
         }
       }
     },
+    "custodian_info": {
+      "title": "Custodian Information",
+      "title_ar": "معلومات أمين الحفظ",
+      "fields": {
+        "has_custodian": {
+          "type": "radio",
+          "label": "Have you appointed a custodian?",
+          "label_ar": "هل تم تعيين أمين حفظ من قبلكم؟",
+          "required": true,
+          "options": [
+            {"value": "yes", "label": "Yes", "label_ar": "نعم"},
+            {"value": "no", "label": "No", "label_ar": "لا"}
+          ]
+        }
+      }
+    },
+    "custodian_details": {
+      "title": "Custodian Details (Form 4)",
+      "title_ar": "تفاصيل أمين الحفظ (نموذج 4)",
+      "conditional_on": "custodian_info.has_custodian=yes",
+      "fields": {
+        "custodian_name": {
+          "type": "text",
+          "label": "Custodian Name",
+          "label_ar": "الاسم الرباعي",
+          "required": false
+        },
+        "custodian_address": {
+          "type": "text",
+          "label": "Custodian Address",
+          "label_ar": "عنوان المراسلة",
+          "required": false
+        },
+        "custodian_account_name": {
+          "type": "text",
+          "label": "Account Name",
+          "label_ar": "اسم الحساب",
+          "required": false
+        },
+        "custodian_account_number": {
+          "type": "text",
+          "label": "Account Number",
+          "label_ar": "رقم الحساب",
+          "required": false
+        },
+        "certificates_destination": {
+          "type": "radio",
+          "label": "Where to send certificates",
+          "label_ar": "أين ترغب إرسال الشهادات",
+          "required": false,
+          "options": [
+            {"value": "customer", "label": "Customer", "label_ar": "العميل"},
+            {"value": "custodian", "label": "Custodian", "label_ar": "أمين الحفظ"},
+            {"value": "other", "label": "Other", "label_ar": "جهة أخرى"}
+          ]
+        },
+        "profits_destination": {
+          "type": "radio",
+          "label": "Where to send profits",
+          "label_ar": "أين ترغب إرسال حصص الأرباح",
+          "required": false,
+          "options": [
+            {"value": "customer", "label": "Customer", "label_ar": "العميل"},
+            {"value": "custodian", "label": "Custodian", "label_ar": "أمين الحفظ"},
+            {"value": "other", "label": "Other", "label_ar": "جهة أخرى"}
+          ]
+        },
+        "sales_proceeds_destination": {
+          "type": "radio",
+          "label": "Where to send sales proceeds",
+          "label_ar": "أين ترغب إرسال حصيلة البيع",
+          "required": false,
+          "options": [
+            {"value": "customer", "label": "Customer", "label_ar": "العميل"},
+            {"value": "custodian", "label": "Custodian", "label_ar": "أمين الحفظ"},
+            {"value": "other", "label": "Other", "label_ar": "جهة أخرى"}
+          ]
+        }
+      }
+    },
     "bank_info": {
       "title": "Bank Information",
       "title_ar": "معلومات البنك",
-      "order": 8,
       "fields": {
         "main_bank_name": {
           "type": "text",
@@ -529,15 +631,13 @@
           "type": "text",
           "label": "Account Number (IBAN)",
           "label_ar": "رقم الحساب (IBAN)",
-          "required": true,
-          "pattern": "^SA[0-9]{22}$"
+          "required": true
         }
       }
     },
     "general_info": {
       "title": "General Information",
       "title_ar": "معلومات عامة عن العميل",
-      "order": 9,
       "fields": {
         "is_board_member": {
           "type": "radio",
@@ -571,10 +671,58 @@
         }
       }
     },
+    "pep_details": {
+      "title": "PEP Details (Form 5)",
+      "title_ar": "تفاصيل الأشخاص المعرضين سياسياً (نموذج 5)",
+      "conditional_on": "general_info.is_pep=yes OR general_info.is_board_member=yes OR general_info.owns_10_percent_or_more=yes",
+      "fields": {
+        "pep_name": {
+          "type": "text",
+          "label": "Name of PEP",
+          "label_ar": "اسم الشخص ذو المنصب",
+          "required": false
+        },
+        "pep_sector": {
+          "type": "text",
+          "label": "Sector",
+          "label_ar": "القطاع",
+          "required": false
+        },
+        "pep_position": {
+          "type": "text",
+          "label": "Position",
+          "label_ar": "المنصب",
+          "required": false
+        },
+        "pep_job_degree": {
+          "type": "text",
+          "label": "Job/Governmental Degree",
+          "label_ar": "الدرجة الوظيفية/الحكومية",
+          "required": false
+        },
+        "pep_relationship": {
+          "type": "text",
+          "label": "Relationship",
+          "label_ar": "صلة القرابة",
+          "required": false
+        },
+        "pep_country": {
+          "type": "text",
+          "label": "Country",
+          "label_ar": "الدولة",
+          "required": false
+        },
+        "company_entity_name": {
+          "type": "text",
+          "label": "Company/Entity Name",
+          "label_ar": "اسم الشركة/اسم الجهة",
+          "required": false
+        }
+      }
+    },
     "suitability_assessment": {
       "title": "Suitability and Risk Assessment Tolerance Questionnaire",
       "title_ar": "استبيان تقييم الملائمة وتحمل المخاطر",
-      "order": 10,
       "fields": {
         "education_level": {
           "type": "radio",
@@ -607,10 +755,101 @@
         }
       }
     },
+    "employment_details": {
+      "title": "Employment Details (Form 6)",
+      "title_ar": "تفاصيل العمل (نموذج 6)",
+      "conditional_on": "suitability_assessment.work_status=employee OR suitability_assessment.work_status=retired",
+      "fields": {
+        "employer_name": {
+          "type": "text",
+          "label": "Employer Name",
+          "label_ar": "اسم جهة العمل",
+          "required": false
+        },
+        "employer_address": {
+          "type": "text",
+          "label": "Employer Address",
+          "label_ar": "عنوان جهة العمل",
+          "required": false
+        },
+        "employer_phone": {
+          "type": "text",
+          "label": "Phone",
+          "label_ar": "الهاتف",
+          "required": false
+        },
+        "work_sector": {
+          "type": "text",
+          "label": "Sector",
+          "label_ar": "قطاع العمل",
+          "required": false
+        },
+        "job_title": {
+          "type": "text",
+          "label": "Job Title",
+          "label_ar": "اسم الوظيفة",
+          "required": false
+        },
+        "tenure": {
+          "type": "text",
+          "label": "Tenure",
+          "label_ar": "مدة الخدمة",
+          "required": false
+        }
+      }
+    },
+    "business_details": {
+      "title": "Business Details (Form 7)",
+      "title_ar": "تفاصيل الأعمال (نموذج 7)",
+      "conditional_on": "suitability_assessment.work_status=businessman",
+      "fields": {
+        "company_name": {
+          "type": "text",
+          "label": "Company Name",
+          "label_ar": "اسم الشركة/المؤسسة",
+          "required": false
+        },
+        "business_activity": {
+          "type": "text",
+          "label": "Business Activity",
+          "label_ar": "نوع النشاط",
+          "required": false
+        },
+        "position": {
+          "type": "text",
+          "label": "Position",
+          "label_ar": "المنصب",
+          "required": false
+        },
+        "office_address": {
+          "type": "text",
+          "label": "Office Address",
+          "label_ar": "عنوان المكتب",
+          "required": false
+        },
+        "office_phone": {
+          "type": "text",
+          "label": "Phone",
+          "label_ar": "الهاتف",
+          "required": false
+        },
+        "countries_deal_with": {
+          "type": "text",
+          "label": "Countries you deal with",
+          "label_ar": "الدول التي تتعامل معها",
+          "required": false
+        },
+        "years_of_activity": {
+          "type": "number",
+          "label": "Number of years of activity",
+          "label_ar": "عدد سنوات ممارسة النشاط",
+          "required": false
+        }
+      }
+    },
     "financial_situation": {
       "title": "Client's Financial Situation",
       "title_ar": "الحالة المالية للعميل",
-      "order": 11,
       "fields": {
         "annual_income": {
           "type": "radio",
@@ -635,8 +874,8 @@
           "required": true,
           "options": [
             {"value": "100000_or_less", "label": "100,000 or less", "label_ar": "100,000 أو أقل", "points": 0},
-            {"value": "100001_to_300000", "label": "100,001 to 300,000", "label_ar": "100,001 إلى 300,000", "points": 1
-{"value": "300001_to_600000", "label": "300,001 to 600,000", "label_ar": "300,001 إلى 600,000", "points": 2},
+            {"value": "100001_to_300000", "label": "100,001 to 300,000", "label_ar": "100,001 إلى 300,000", "points": 1},
+            {"value": "300001_to_600000", "label": "300,001 to 600,000", "label_ar": "300,001 إلى 600,000", "points": 2},
             {"value": "600001_to_1500000", "label": "600,001 to 1,500,000", "label_ar": "600,001 إلى 1,500,000", "points": 3},
             {"value": "1500001_to_5000000", "label": "1,500,001 to 5,000,000", "label_ar": "1,500,001 إلى 5,000,000", "points": 4},
             {"value": "5000001_to_10000000", "label": "5,000,001 to 10,000,000", "label_ar": "5,000,001 إلى 10,000,000", "points": 5},
@@ -670,10 +909,136 @@
         }
       }
     },
+    "professional_experience": {
+      "title": "Client's Professional Experiences in The Financial Sector",
+      "title_ar": "الخبرات العملية للعميل في القطاع المالي",
+      "fields": {
+        "worked_in_financial_sector": {
+          "type": "radio",
+          "label": "Has the client worked in the financial sector during the past five years?",
+          "label_ar": "هل سبق للعميل العمل في القطاع المالي خلال السنوات الخمس السابقة؟",
+          "required": true,
+          "options": [
+            {"value": "yes", "label": "Yes", "label_ar": "نعم", "points": 6},
+            {"value": "no", "label": "No", "label_ar": "لا", "points": 0}
+          ]
+        },
+        "other_financial_experience": {
+          "type": "radio",
+          "label": "Does the client have any other practical experience related to the financial sector?",
+          "label_ar": "هل للعميل أي خبرات عملية أخرى ذات صلة بالقطاع المالي؟",
+          "required": true,
+          "options": [
+            {"value": "yes", "label": "Yes", "label_ar": "نعم", "points": 6},
+            {"value": "no", "label": "No", "label_ar": "لا", "points": 0}
+          ]
+        },
+        "experience_years": {
+          "type": "number",
+          "label": "If yes, please specify years of experience",
+          "label_ar": "إذا كان الجواب نعم، يرجى تحديد سنوات الخبرة",
+          "required": false,
+          "conditional_on": "other_financial_experience=yes"
+        },
+        "professional_certifications": {
+          "type": "radio",
+          "label": "Do you have any professional certifications?",
+          "label_ar": "هل لديك أي شهادات مهنية؟",
+          "required": true,
+          "options": [
+            {"value": "yes", "label": "Yes", "label_ar": "نعم", "points": 6},
+            {"value": "no", "label": "No", "label_ar": "لا", "points": 0}
+          ]
+        },
+        "account_refused": {
+          "type": "radio",
+          "label": "Has a financial institution ever refused to open an account for you?",
+          "label_ar": "هل سبق أن رفضت مؤسسة مالية فتح حساب خاص بكم؟",
+          "required": true,
+          "options": [
+            {"value": "yes", "label": "Yes", "label_ar": "نعم", "points": 6},
+            {"value": "no", "label": "No", "label_ar": "لا", "points": 0}
+          ]
+        },
+        "additional_financial_info": {
+          "type": "radio",
+          "label": "Is there any information on the customer's financial situation?",
+          "label_ar": "هل هناك أي معلومات أخرى عن الوضع المالي؟",
+          "required": true,
+          "options": [
+            {"value": "yes", "label": "Yes", "label_ar": "نعم"},
+            {"value": "no", "label": "No", "label_ar": "لا"}
+          ]
+        },
+        "additional_financial_description": {
+          "type": "text",
+          "label": "If yes, please provide a brief description",
+          "label_ar": "في حال نعم، يرجى تقديم وصف مختصر",
+          "required": false,
+          "conditional_on": "additional_financial_info=yes"
+        }
+      }
+    },
+    "other_info": {
+      "title": "Other Information",
+      "title_ar": "معلومات أخرى",
+      "fields": {
+        "loan_percentage": {
+          "type": "radio",
+          "label": "The percentage of loans out of the total money invested",
+          "label_ar": "نسبة القروض من إجمالي الأموال المستثمرة",
+          "required": true,
+          "options": [
+            {"value": "0_5", "label": "0-5%", "label_ar": "0-5%", "points": 4},
+            {"value": "5_15", "label": "5-15%", "label_ar": "5-15%", "points": 2},
+            {"value": "15_30", "label": "15-30%", "label_ar": "15-30%", "points": 1},
+            {"value": "30_50", "label": "30-50%", "label_ar": "30-50%", "points": 0},
+            {"value": "over_50", "label": "Over 50%", "label_ar": "أكثر من 50%", "points": 0}
+          ]
+        },
+        "margin_transactions": {
+          "type": "radio",
+          "label": "Margin transactions over the past five years",
+          "label_ar": "صفقات التمويل بالهامش خلال السنوات الخمس السابقة",
+          "required": true,
+          "options": [
+            {"value": "yes", "label": "Yes", "label_ar": "نعم", "points": 0},
+            {"value": "no", "label": "No", "label_ar": "لا", "points": 2}
+          ]
+        }
+      }
+    },
+    "investment_knowledge": {
+      "title": "Investment Knowledge and Experience",
+      "title_ar": "المعرفة والخبرة الاستثمارية",
+      "fields": {
+        "investment_knowledge_level": {
+          "type": "radio",
+          "label": "Investment Knowledge Level",
+          "label_ar": "مستوى المعرفة الاستثمارية",
+          "required": true,
+          "options": [
+            {"value": "low", "label": "Low", "label_ar": "منخفضة", "points": 0},
+            {"value": "medium", "label": "Medium", "label_ar": "متوسطة", "points": 4},
+            {"value": "high", "label": "High", "label_ar": "عالية", "points": 6}
+          ]
+        },
+        "risk_tolerance": {
+          "type": "radio",
+          "label": "Risk Tolerance",
+          "label_ar": "قدرة العميل على تحمل المخاطرة",
+          "required": true,
+          "options": [
+            {"value": "low", "label": "Low", "label_ar": "منخفضة", "points": 0},
+            {"value": "medium", "label": "Medium", "label_ar": "متوسطة", "points": 4},
+            {"value": "high", "label": "High", "label_ar": "عالية", "points": 6}
+          ]
+        }
+      }
+    },
     "investment_objectives": {
       "title": "General Investment Objectives",
       "title_ar": "الأهداف الاستثمارية العامة",
-      "order": 12,
       "fields": {
         "investment_objective": {
           "type": "radio",
@@ -720,31 +1085,440 @@
         }
       }
     },
-    "investment_experience": {
-      "title": "Investment Knowledge and Experience",
-      "title_ar": "المعرفة والخبرة الاستثمارية",
-      "order": 13,
+    "investment_portfolio": {
+      "title": "Information About The Client's Investment Portfolio",
+      "title_ar": "معلومات عن المحفظة الاستثمارية للعميل",
       "fields": {
-        "investment_knowledge_level": {
+        "shares_experience": {
           "type": "radio",
-          "label": "Investment Knowledge Level",
-          "label_ar": "مستوى المعرفة الاستثمارية",
-          "required": true,
+          "label": "Shares - Knowledge Level",
+          "label_ar": "الأسهم - مستوى المعرفة والخبرة",
+          "required": false,
           "options": [
-            {"value": "low", "label": "Low", "label_ar": "منخفضة", "points": 0},
-            {"value": "medium", "label": "Medium", "label_ar": "متوسطة", "points": 4},
-            {"value": "high", "label": "High", "label_ar": "عالية", "points": 6}
+            {"value": "little", "label": "Little", "label_ar": "محدودة", "points": 1},
+            {"value": "good", "label": "Good", "label_ar": "جيدة", "points": 4},
+            {"value": "strong", "label": "Strong", "label_ar": "قوية", "points": 6}
           ]
         },
-        "risk_tolerance": {
+        "shares_investment_years": {
           "type": "radio",
-          "label": "Risk Tolerance",
-          "label_ar": "قدرة العميل على تحمل المخاطرة",
+          "label": "Shares - Years of Investment",
+          "label_ar": "الأسهم - سنوات التداول/الاحتفاظ/الاستثمار",
+          "required": false,
+          "options": [
+            {"value": "0", "label": "0 years", "label_ar": "0 سنوات", "points": 0},
+            {"value": "1_3", "label": "1-3 years", "label_ar": "1-3 سنوات", "points": 2},
+            {"value": "4_6", "label": "4-6 years", "label_ar": "4-6 سنوات", "points": 6},
+            {"value": "above_6", "label": "Above 6 years", "label_ar": "أكثر من 6 سنوات", "points": 8}
+          ]
+        },
+        "shares_number_of_trades": {
+          "type": "radio",
+          "label": "Shares - Number of Trades",
+          "label_ar": "الأسهم - عدد الصفقات التقديري",
+          "required": false,
+          "options": [
+            {"value": "0", "label": "0", "label_ar": "0", "points": 0},
+            {"value": "1_10", "label": "1-10", "label_ar": "1-10", "points": 4},
+            {"value": "10_30", "label": "10-30", "label_ar": "10-30", "points": 6},
+            {"value": "above_30", "label": "Above 30", "label_ar": "أكثر من 30", "points": 8}
+          ]
+        },
+        "shares_deal_size": {
+          "type": "radio",
+          "label": "Shares - Deal Size",
+          "label_ar": "الأسهم - حجم الصفقات",
+          "required": false,
+          "options": [
+            {"value": "less_200k", "label": "Less than 200k", "label_ar": "أقل من 200 ألف", "points": 1},
+            {"value": "200_400k", "label": "200k-400k", "label_ar": "200-400 ألف", "points": 2},
+            {"value": "500k_1m", "label": "500k-1 million", "label_ar": "500 ألف - مليون", "points": 4},
+            {"value": "1m_5m", "label": "1-5 million", "label_ar": "مليون - 5 مليون", "points": 6},
+            {"value": "above_5m", "label": "Above 5 million", "label_ar": "أكثر من 5 مليون", "points": 8}
+          ]
+        },
+        "shares_outside_kingdom": {
+          "type": "radio",
+          "label": "Securities transactions outside the Kingdom over the past five years",
+          "label_ar": "صفقات الأوراق المالية خارج المملكة خلال السنوات الخمس السابقة",
+          "required": false,
+          "options": [
+            {"value": "yes", "label": "Yes", "label_ar": "نعم", "points": 1},
+            {"value": "no", "label": "No", "label_ar": "لا", "points": 0}
+          ]
+        },
+        "shares_countries": {
+          "type": "text",
+          "label": "Which countries were these transactions executed?",
+          "label_ar": "الدول خارج المملكة التي تم تنفيذ تلك الصفقات فيها",
+          "required": false,
+          "conditional_on": "shares_outside_kingdom=yes"
+        }
+      }
+    },
+    "portfolio_breakdown": {
+      "title": "Investment Portfolio Results",
+      "title_ar": "نتائج المحفظة الاستثمارية",
+      "fields": {
+        "current_shares_percentage": {
+          "type": "number",
+          "label": "Current Portfolio - Shares %",
+          "label_ar": "المحفظة الحالية - الأسهم %",
+          "required": false,
+          "min": 0,
+          "max": 100
+        },
+        "ideal_shares_percentage": {
+          "type": "number",
+          "label": "Ideal Portfolio - Shares %",
+          "label_ar": "المحفظة المثالية - الأسهم %",
+          "required": false,
+          "min": 0,
+          "max": 100
+        },
+        "current_debt_percentage": {
+          "type": "number",
+          "label": "Current Portfolio - Debt Instruments %",
+          "label_ar": "المحفظة الحالية - أدوات الدين %",
+          "required": false,
+          "min": 0,
+          "max": 100
+        },
+        "ideal_debt_percentage": {
+          "type": "number",
+          "label": "Ideal Portfolio - Debt Instruments %",
+          "label_ar": "المحفظة المثالية - أدوات الدين %",
+          "required": false,
+          "min": 0,
+          "max": 100
+        },
+        "current_funds_percentage": {
+          "type": "number",
+          "label": "Current Portfolio - Investment Funds %",
+          "label_ar": "المحفظة الحالية - الصناديق الاستثمارية %",
+          "required": false,
+          "min": 0,
+          "max": 100
+        },
+        "ideal_funds_percentage": {
+          "type": "number",
+          "label": "Ideal Portfolio - Investment Funds %",
+          "label_ar": "المحفظة المثالية - الصناديق الاستثمارية %",
+          "required": false,
+          "min": 0,
+          "max": 100
+        },
+        "current_real_estate_percentage": {
+          "type": "number",
+          "label": "Current Portfolio - Real Estate %",
+          "label_ar": "المحفظة الحالية - عقارات %",
+          "required": false,
+          "min": 0,
+          "max": 100
+        },
+        "ideal_real_estate_percentage": {
+          "type": "number",
+          "label": "Ideal Portfolio - Real Estate %",
+          "label_ar": "المحفظة المثالية - عقارات %",
+          "required": false,
+          "min": 0,
+          "max": 100
+        },
+        "current_derivatives_percentage": {
+          "type": "number",
+          "label": "Current Portfolio - Derivatives %",
+          "label_ar": "المحفظة الحالية - عقود مشتقات %",
+          "required": false,
+          "min": 0,
+          "max": 100
+        },
+        "ideal_derivatives_percentage": {
+          "type": "number",
+          "label": "Ideal Portfolio - Derivatives %",
+          "label_ar": "المحفظة المثالية - عقود مشتقات %",
+          "required": false,
+          "min": 0,
+          "max": 100
+        },
+        "current_alternative_percentage": {
+          "type": "number",
+          "label": "Current Portfolio - Alternative Investment %",
+          "label_ar": "المحفظة الحالية - استثمارات بديلة %",
+          "required": false,
+          "min": 0,
+          "max": 100
+        },
+        "ideal_alternative_percentage": {
+          "type": "number",
+          "label": "Ideal Portfolio - Alternative Investment %",
+          "label_ar": "المحفظة المثالية - استثمارات بديلة %",
+          "required": false,
+          "min": 0,
+          "max": 100
+        },
+        "current_deposits_percentage": {
+          "type": "number",
+          "label": "Current Portfolio - Deposits and Murabaha %",
+          "label_ar": "المحفظة الحالية - ودائع ومرابحات %",
+          "required": false,
+          "min": 0,
+          "max": 100
+        },
+        "ideal_deposits_percentage": {
+          "type": "number",
+          "label": "Ideal Portfolio - Deposits and Murabaha %",
+          "label_ar": "المحفظة المثالية - ودائع ومرابحات %",
+          "required": false,
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    "investment_transaction_info": {
+      "title": "Client Investment Information in The Potential Transaction",
+      "title_ar": "معلومات استثمار العميل في الصفقة المحتملة",
+      "fields": {
+        "investment_decision": {
+          "type": "radio",
+          "label": "How did you make the decision to enter this investment?",
+          "label_ar": "كيف اتخذت القرار بدخول بهذا الاستثمار؟",
           "required": true,
           "options": [
-            {"value": "low", "label": "Low", "label_ar": "منخفضة", "points": 0},
-            {"value": "medium", "label": "Medium", "label_ar": "متوسطة", "points": 4},
-            {"value": "high", "label": "High", "label_ar": "عالية", "points": 6}
+            {"value": "personal", "label": "Personal", "label_ar": "شخصي", "points": 1},
+            {"value": "company_advice", "label": "Advice from the company", "label_ar": "مشورة مقدمة من الشركة", "points": 0}
+          ]
+        },
+        "investment_percentage_of_assets": {
+          "type": "radio",
+          "label": "What is the percentage of your current investment with us from the value of your current assets?",
+          "label_ar": "ما هي نسبة ما يمثله استثمارك الحالي معنا من قيمة أصولك الحالية؟",
+          "required": true,
+          "options": [
+            {"value": "0_5", "label": "0-5%", "label_ar": "0-5%", "points": 8},
+            {"value": "5_20", "label": "5-20%", "label_ar": "5-20%", "points": 6},
+            {"value": "20_50", "label": "20-50%", "label_ar": "20-50%", "points": 4},
+            {"value": "50_70", "label": "50-70%", "label_ar": "50-70%", "points": 2},
+            {"value": "70_100", "label": "70-100%", "label_ar": "70-100%", "points": 1}
+          ]
+        },
+        "investment_amount": {
+          "type": "radio",
+          "label": "What is the value of your investment with us in this opportunity?",
+          "label_ar": "ما هو قيمة استثمارك معنا في هذه الفرصة؟",
+          "required": true,
+          "options": [
+            {"value": "above_200k", "label": "Above 200,000 SR", "label_ar": "أكثر من 200 ألف ريال", "points": 6},
+            {"value": "below_200k", "label": "Below 200,000 SR", "label_ar": "أقل من 200 ألف ريال", "points": 0}
+          ]
+        }
+      }
+    },
+    "qualified_client_criteria": {
+      "title": "Qualified Client Criteria (Form 8)",
+      "title_ar": "معايير العميل المؤهل (نموذج 8)",
+      "conditional_on": "investment_transaction_info.investment_amount=above_200k",
+      "fields": {
+        "large_transactions": {
+          "type": "checkbox",
+          "label": "Have you made transactions in the stock markets with a total value of not less than 40 million Saudi riyals and no less than 10 transactions in each quarter during the past 12 months?",
+          "label_ar": "هل قمت بصفقات في أسواق الأوراق المالية لا يقل مجموع قيمتها عن 40 مليون ريال سعودي ولا تقل عن 10 صفقات في كل ربع سنة خلال 12 شهر الماضية؟",
+          "required": false,
+          "options": [
+            {"value": "yes", "label": "Yes (please provide supporting documents)", "label_ar": "نعم (أرجو دعم الاختيار بمستند)"}
+          ]
+        },
+        "net_assets_5m": {
+          "type": "checkbox",
+          "label": "Is your net asset value not less than 5 million Saudi riyals?",
+          "label_ar": "هل صافي قيمة أصولك لا تقل عن 5 مليون ريال سعودي؟",
+          "required": false,
+          "options": [
+            {"value": "yes", "label": "Yes (please provide supporting documents)", "label_ar": "نعم (أرجو دعم الاختيار بمستند)"}
+          ]
+        },
+        "financial_sector_experience": {
+          "type": "checkbox",
+          "label": "Have you worked for at least 3 years in the financial sector in a professional job related to investing in securities?",
+          "label_ar": "هل سبق وأن عملت مدة 3 سنوات على الأقل في القطاع المالي في وظيفة مهنية تتعلق بالاستثمار في الأوراق المالية؟",
+          "required": false,
+          "options": [
+            {"value": "yes", "label": "Yes (please provide supporting documents)", "label_ar": "نعم (أرجو دعم الاختيار بمستند)"}
+          ]
+        },
+        "professional_certificate": {
+          "type": "checkbox",
+          "label": "Have you obtained a professional certificate specialized in the field of securities business accredited by an internationally recognized body?",
+          "label_ar": "هل حصلت على شهادة مهنية متخصصة في مجال أعمال الأوراق المالية معتمدة من جهة معترف بها دولياً؟",
+          "required": false,
+          "options": [
+            {"value": "yes", "label": "Yes (please provide supporting documents)", "label_ar": "نعم (أرجو دعم الاختيار بمستند)"}
+          ]
+        },
+        "cma_certificate": {
+          "type": "checkbox",
+          "label": "Have you obtained the general certificate for dealing in securities approved by the Capital Market Authority, and that your annual income is not less than 600,000 riyals in the past two years?",
+          "label_ar": "هل حصلت على الشهادة العامة للتعامل بالأوراق المالية المعتمدة من قبل هيئة السوق المالية وأن لا يقل دخلك السنوي عن 600 ألف ريال في السنتين الماضيتين؟",
+          "required": false,
+          "options": [
+            {"value": "yes", "label": "Yes (please provide supporting documents)", "label_ar": "نعم (أرجو دعم الاختيار بمستند)"}
+          ]
+        },
+        "registered_employee": {
+          "type": "checkbox",
+          "label": "Are you a registered employee of this opportunity fund manager?",
+          "label_ar": "هل أنت موظف مسجل لدى مدير صندوق هذه الفرصة؟",
+          "required": false,
+          "options": [
+            {"value": "yes", "label": "Yes (please provide supporting documents)", "label_ar": "نعم (أرجو دعم الاختيار بمستند)"}
+          ]
+        }
+      }
+    },
+    "suitability_results": {
+      "title": "Results of Assessing Suitability and Risk Tolerance by The Company",
+      "title_ar": "نتائج تقييم الملائمة وتحمل المخاطر من قبل الشركة",
+      "fields": {
+        "suitability_category": {
+          "type": "radio",
+          "label": "Client Category",
+          "label_ar": "فئة العميل",
+          "required": false,
+          "options": [
+            {"value": "low", "label": "Low - Not suitable and unable to take risks (Below 50)", "label_ar": "منخفض - غير مالئم وغير قادر على تحمل المخاطر (أقل من 50)"},
+            {"value": "medium", "label": "Medium - Suitable with moderate risk tolerance (50-100)", "label_ar": "متوسط - مالئم ومتوسط القدرة على تحمل المخاطر (50-100)"},
+            {"value": "high", "label": "High - Suitable and able to take high risks (Above 100)", "label_ar": "مرتفع - مالئم وقادر على تحمل المخاطر (أكثر من 100)"}
+          ]
+        }
+      }
+    },
+    "suitability_confirmation": {
+      "title": "Customer Confirmation of Suitability Report",
+      "title_ar": "تأكيد العميل باستلام تقرير الملائمة",
+      "fields": {
+        "suitability_acknowledgment": {
+          "type": "radio",
+          "label": "Suitability Report Acknowledgment",
+          "label_ar": "إقرار استلام تقرير الملائمة",
+          "required": true,
+          "options": [
+            {"value": "agree_suitable", "label": "I agree with your assessment that I am suitable", "label_ar": "أوافق على تقييمكم لي بأني مالئم ولا يوجد أي اعتراض من قبلي وأريد الاستثمار معكم"},
+            {"value": "disagree_no_invest", "label": "I do not agree with your evaluation and do not want to invest", "label_ar": "لا أوافق على تقييمكم لي ولا أريد الاستثمار معكم"},
+            {"value": "disagree_but_invest", "label": "I do not agree with your assessment but want to invest despite inappropriateness", "label_ar": "لا أوافق على تقييمكم لي بعدم ملائمتي ولا توصيتكم بعدم الاستثمار وأرغب في الاستثمار رغم عدم ملائمة المنتج/الصفقة لي"}
+          ]
+        }
+      }
+    },
+    "risk_declaration": {
+      "title": "Customer Acknowledgment of Product/Transaction Risks",
+      "title_ar": "إقرار العميل بمخاطر المنتج/الصفقة",
+      "conditional_on": "suitability_confirmation.suitability_acknowledgment=disagree_but_invest",
+      "fields": {
+        "product_name": {
+          "type": "text",
+          "label": "Product Name",
+          "label_ar": "اسم المنتج",
+          "required": false
+        },
+        "risk_acknowledgment": {
+          "type": "checkbox",
+          "label": "I acknowledge understanding of high-risk nature and unsuitability",
+          "label_ar": "أقر بأنني على علم بأن المنتج ينطوي على مستوى عال من المخاطر وطبيعة المخاطر التي يتضمنها ويجيزها درجة تحمل المخاطر المحددة في ملفي",
+          "required": false,
+          "options": [
+            {"value": "acknowledged", "label": "Acknowledged", "label_ar": "مُقر"}
+          ]
+        }
+      }
+    },
+    "general_acknowledgments": {
+      "title": "General Acknowledgments",
+      "title_ar": "إقرارات عامة",
+      "fields": {
+        "information_accuracy": {
+          "type": "checkbox",
+          "label": "I certify that the information provided in this form is true, correct and complete",
+          "label_ar": "أقر بأن المعلومات التي قدمتها في هذا النموذج سليمة وصحيحة وتامة",
+          "required": true,
+          "options": [
+            {"value": "confirmed", "label": "Confirmed", "label_ar": "مؤكد"}
+          ]
+        },
+        "data_update_commitment": {
+          "type": "checkbox",
+          "label": "I acknowledge that the company will rely on the information provided and I will update my data when changes occur",
+          "label_ar": "أقر بأن الشركة سوف تعتمد على المعلومات الواردة في هذا النموذج، وفي حال حدوث أي تغيير سأقوم بتحديث بياناتي ومعلوماتي",
+          "required": true,
+          "options": [
+            {"value": "confirmed", "label": "Confirmed", "label_ar": "مؤكد"}
+          ]
+        },
+        "account_freeze_understanding": {
+          "type": "checkbox",
+          "label": "I understand that failure to update documents may result in account freezing and closure",
+          "label_ar": "أتفهم أنه في حالة عدم تحديث البيانات وعدم تقديم نسخة محدثة وصالحة لهويتي ومستنداتي خلال ستة أشهر من انتهائها ستقوم الشركة بتجميد حسابي",
+          "required": true,
+          "options": [
+            {"value": "understood", "label": "Understood", "label_ar": "مفهوم"}
+          ]
+        },
+        "authorization_to_execute": {
+          "type": "checkbox",
+          "label": "I authorize the company to execute my financial and investment operations based on my request",
+          "label_ar": "أفوض الشركة بتنفيذ أوامر عملياتي المالية والاستثمارية بناء على طلبي",
+          "required": true,
+          "options": [
+            {"value": "authorized", "label": "Authorized", "label_ar": "مفوض"}
+          ]
+        },
+        "liability_waiver": {
+          "type": "checkbox",
+          "label": "I confirm that the company shall not be liable for any damages resulting from reliance on the information I provided",
+          "label_ar": "أؤكد أنه لن تكون الشركة وموظفيها مسؤولين عن أي أضرار قد تنجم من الاعتماد على المعلومات التي قدمتها",
+          "required": true,
+          "options": [
+            {"value": "confirmed", "label": "Confirmed", "label_ar": "مؤكد"}
+          ]
+        },
+        "confidentiality_waiver": {
+          "type": "checkbox",
+          "label": "I waive the company of its duty of confidentiality for regulatory and legal requirements",
+          "label_ar": "أعفي الشركة من واجبها في الحفاظ على السرية، وأمنح الشركة الحرية في إتاحة أي معلومات تتعلق بحسابي للسلطات المختصة",
+          "required": true,
+          "options": [
+            {"value": "waived", "label": "Waived", "label_ar": "معفى"}
+          ]
+        }
+      }
+    },
+    "tax_acknowledgments": {
+      "title": "Tax Acknowledgments",
+      "title_ar": "إقرارات الأغراض الضريبية",
+      "fields": {
+        "tax_info_accuracy": {
+          "type": "checkbox",
+          "label": "I declare that all tax-related information provided is true, correct, complete and up-to-date",
+          "label_ar": "أقر بأن جميع التفاصيل والمعلومات الواردة في هذا الإقرار الضريبي حقيقية وصحيحة وكاملة وحديثة",
+          "required": true,
+          "options": [
+            {"value": "confirmed", "label": "Confirmed", "label_ar": "مؤكد"}
+          ]
+        },
+        "tax_residence_change_notification": {
+          "type": "checkbox",
+          "label": "I undertake to inform the company if I am away from my country of residence for any period that may impact tax residency tests",
+          "label_ar": "أتعهد بإبلاغ الشركة إذا لم أتواجد في بلد إقامتي لأي فترة قد تؤثر على اختبار التواجد الجوهري",
+          "required": true,
+          "options": [
+            {"value": "confirmed", "label": "Confirmed", "label_ar": "مؤكد"}
+          ]
+        },
+        "tax_withholding_acceptance": {
+          "type": "checkbox",
+          "label": "I accept that payments to me shall be net of any taxes and the company assumes no liability in this regard",
+          "label_ar": "أوافق على أنه في حالة أي استقطاع ضريبي، فإن جميع المدفوعات لي ستكون صافية من أي ضرائب ولا تتحمل الشركة أي مسؤولية",
+          "required": true,
+          "options": [
+            {"value": "accepted", "label": "Accepted", "label_ar": "مقبول"}
           ]
         }
       }
@@ -752,7 +1526,6 @@
     "signature_section": {
       "title": "Signature Section",
       "title_ar": "قسم التوقيع",
-      "order": 14,
       "fields": {
         "signatory_name_arabic": {
           "type": "text",
@@ -799,48 +1572,115 @@
         }
       }
     },
-    "acknowledgments": {
-      "title": "General Acknowledgments",
-      "title_ar": "إقرارات عامة",
-      "order": 15,
+    "company_section": {
+      "title": "To Be Completed by RM or CSR",
+      "title_ar": "يتم تعبئته من قبل مدير العلاقة أو ممثل خدمة العملاء",
       "fields": {
-        "information_accuracy": {
+        "account_holder_full_name": {
+          "type": "text",
+          "label": "Account Holder Full Name",
+          "label_ar": "الاسم الكامل لصاحب الحساب",
+          "required": false
+        },
+        "rm_csr_name": {
+          "type": "text",
+          "label": "RM/CSR Name",
+          "label_ar": "اسم مدير العلاقة/ممثل خدمة العملاء",
+          "required": false
+        },
+        "rm_csr_occupation": {
+          "type": "text",
+          "label": "Occupation",
+          "label_ar": "الوظيفة",
+          "required": false
+        },
+        "rm_csr_signature": {
+          "type": "signature",
+          "label": "RM/CSR Signature",
+          "label_ar": "توقيع مدير العلاقة/ممثل خدمة العملاء",
+          "required": false
+        },
+        "rm_csr_date": {
+          "type": "date",
+          "label": "Date",
+          "label_ar": "التاريخ",
+          "required": false
+        }
+      }
+    },
+    "client_file_info": {
+      "title": "Client File Information",
+      "title_ar": "معلومات ملف العميل",
+      "fields": {
+        "client_name": {
+          "type": "text",
+          "label": "Client Name",
+          "label_ar": "أسم العميل",
+          "required": true
+        },
+        "client_file_number": {
+          "type": "text",
+          "label": "Client File Number",
+          "label_ar": "رقم ملف العميل",
+          "required": true
+        },
+        "investment_account_number": {
+          "type": "text",
+          "label": "Client Investment Account Number",
+          "label_ar": "رقم الحساب الاستثماري للعميل",
+          "required": true
+        },
+        "account_currency": {
           "type": "checkbox",
-          "label": "I certify that the information provided in this form is true, correct and complete",
-          "label_ar": "أقر بأن المعلومات التي قدمتها في هذا النموذج سليمة وصحيحة وتامة",
+          "label": "Account Currencies",
+          "label_ar": "عملة الحساب",
           "required": true,
           "options": [
-            {"value": "confirmed", "label": "Confirmed", "label_ar": "مؤكد"}
+            {"value": "sar", "label": "Saudi Riyal", "label_ar": "الريال السعودي"},
+            {"value": "usd", "label": "US Dollar", "label_ar": "دولار أمريكي"},
+            {"value": "other", "label": "Other", "label_ar": "أخرى"}
           ]
         },
-        "data_update_commitment": {
-          "type": "checkbox",
-          "label": "I acknowledge that the company will rely on the information provided and I will update my data when changes occur",
-          "label_ar": "أقر بأن الشركة سوف تعتمد على المعلومات الواردة في هذا النموذج، وفي حال حدوث أي تغيير سأقوم بتحديث بياناتي ومعلوماتي",
-          "required": true,
-          "options": [
-            {"value": "confirmed", "label": "Confirmed", "label_ar": "مؤكد"}
-          ]
+        "other_currency": {
+          "type": "text",
+          "label": "Other Currency (Please specify)",
+          "label_ar": "عملة أخرى (يرجى التحديد)",
+          "required": false,
+          "conditional_on": "account_currency includes other"
         },
-        "authorization_to_execute": {
-          "type": "checkbox",
-          "label": "I authorize the company to execute my financial and investment operations based on my request",
-          "label_ar": "أفوض الشركة بتنفيذ أوامر عملياتي المالية والاستثمارية بناء على طلبي",
+        "portfolio_type": {
+          "type": "radio",
+          "label": "Portfolio Type",
+          "label_ar": "نوع المحفظة",
           "required": true,
           "options": [
-            {"value": "authorized", "label": "Authorized", "label_ar": "مفوض"}
-          ]
-        },
-        "liability_waiver": {
-          "type": "checkbox",
-          "label": "I confirm that the company shall not be liable for any damages resulting from reliance on the information I provided",
-          "label_ar": "أؤكد أنه لن تكون الشركة وموظفيها مسؤولين عن أي أضرار قد تنجم من الاعتماد على المعلومات التي قدمتها",
-          "required": true,
-          "options": [
-            {"value": "confirmed", "label": "Confirmed", "label_ar": "مؤكد"}
+            {"value": "local_securities", "label": "Portfolio of local securities", "label_ar": "محفظة أوراق مالية محلية"},
+            {"value": "foreign_securities", "label": "Foreign securities portfolio", "label_ar": "محفظة أوراق مالية أجنبية"},
+            {"value": "investment_funds", "label": "Investment funds portfolio", "label_ar": "استثمار صناديق"}
           ]
         }
       }
+    }
+  },
+  "validation_rules": {
+    "portfolio_percentages_sum_100": {
+      "fields": ["current_shares_percentage", "current_debt_percentage", "current_funds_percentage", "current_real_estate_percentage", "current_derivatives_percentage", "current_alternative_percentage", "current_deposits_percentage"],
+      "rule": "sum_equals_100",
+      "message": "Current portfolio percentages must sum to 100%",
+      "message_ar": "يجب أن يكون مجموع نسب المحفظة الحالية 100%"
+    },
+    "ideal_portfolio_percentages_sum_100": {
+      "fields": ["ideal_shares_percentage", "ideal_debt_percentage", "ideal_funds_percentage", "ideal_real_estate_percentage", "ideal_derivatives_percentage", "ideal_alternative_percentage", "ideal_deposits_percentage"],
+      "rule": "sum_equals_100",
+      "message": "Ideal portfolio percentages must sum to 100%",
+      "message_ar": "يجب أن يكون مجموع نسب المحفظة المثالية 100%"
+    },
+    "at_least_one_qualified_criteria": {
+      "conditional_on": "investment_transaction_info.investment_amount=above_200k",
+      "fields": ["large_transactions", "net_assets_5m", "financial_sector_experience", "professional_certificate", "cma_certificate", "registered_employee"],
+      "rule": "at_least_one_selected",
+      "message": "At least one qualified client criteria must be selected for investments above 200,000 SAR",
+      "message_ar": "يجب اختيار معيار واحد على الأقل من معايير العميل المؤهل للاستثمارات أكثر من 200,000 ريال"
     }
   },
   "file_uploads": {
@@ -849,95 +1689,30 @@
       "label_ar": "وثيقة الهوية",
       "required": true,
       "accepted_formats": [".pdf", ".jpg", ".jpeg", ".png"],
-      "max_size": "5MB",
-      "description": "Valid proof of identity issued by governmental authority"
+      "max_size": "5MB"
     },
     "address_proof": {
       "label": "Address Proof Document",
       "label_ar": "وثيقة إثبات العنوان",
       "required": true,
       "accepted_formats": [".pdf", ".jpg", ".jpeg", ".png"],
-      "max_size": "5MB",
-      "description": "National address document as specified in the form"
+      "max_size": "5MB"
     },
     "income_proof": {
       "label": "Income Proof Document",
       "label_ar": "وثيقة إثبات الدخل",
       "required": false,
       "accepted_formats": [".pdf", ".jpg", ".jpeg", ".png"],
-      "max_size": "5MB",
-      "description": "Salary certificate or other income documentation"
+      "max_size": "5MB"
+    },
+    "qualified_client_documents": {
+      "label": "Qualified Client Supporting Documents",
+      "label_ar": "وثائق دعم العميل المؤهل",
+      "required": false,
+      "conditional_on": "investment_transaction_info.investment_amount=above_200k",
+      "accepted_formats": [".pdf", ".jpg", ".jpeg", ".png"],
+      "max_size": "10MB",
+      "multiple": true
     }
-  },
-  "validation_rules": {
-    "required_fields_validation": {
-      "description": "All fields marked as required must be completed",
-      "description_ar": "جميع الحقول المطلوبة يجب تعبئتها"
-    },
-    "conditional_fields_validation": {
-      "description": "Conditional fields appear based on previous answers",
-      "description_ar": "الحقول الشرطية تظهر بناءً على الإجابات السابقة"
-    },
-    "email_format": {
-      "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
-      "message": "Please enter a valid email address",
-      "message_ar": "يرجى إدخال عنوان بريد إلكتروني صحيح"
-    },
-    "iban_format": {
-      "pattern": "^SA[0-9]{22}$",
-      "message": "Please enter a valid Saudi IBAN (SA followed by 22 digits)",
-      "message_ar": "يرجى إدخال رقم أيبان سعودي صحيح (SA متبوعة بـ 22 رقم)"
-    },
-    "mobile_format": {
-      "pattern": "^(\\+966|0)?[5][0-9]{8}$",
-      "message": "Please enter a valid Saudi mobile number",
-      "message_ar": "يرجى إدخال رقم جوال سعودي صحيح"
-    }
-  },
-  "scoring_system": {
-    "suitability_categories": {
-      "low": {
-        "range": "0-49",
-        "label": "Low Risk - Not suitable",
-        "label_ar": "منخفض المخاطر - غير مالئم",
-        "description": "Client not suitable for high-risk investments"
-      },
-      "medium": {
-        "range": "50-100",
-        "label": "Medium Risk - Moderate suitability",
-        "label_ar": "متوسط المخاطر - ملائم بدرجة متوسطة",
-        "description": "Client suitable for moderate-risk investments"
-      },
-      "high": {
-        "range": "101+",
-        "label": "High Risk - Suitable for high-risk investments",
-        "label_ar": "مرتفع المخاطر - مالئم للاستثمارات عالية المخاطر",
-        "description": "Client suitable for high-risk investments"
-      }
-    }
-  },
-  "form_instructions": {
-    "general": [
-      "All sections must be completed using clear letters",
-      "Please ensure all contact information is correct as all correspondence will be sent to these addresses",
-      "You must provide valid proof of identity issued by governmental authority",
-      "All amounts must be expressed in Saudi Riyals only"
-    ],
-    "general_ar": [
-      "يجب إكمال كل الأجزاء باستخدام أحرف واضحة",
-      "يرجى التأكد من صحة جميع عناوين الاتصال والمراسلة الالكترونية المقدمة في هذا النموذج",
-      "يجب تقديم إثبات هوية سارية المفعول صادرة عن السلطة الحكومية",
-      "يجب التعبير عن كافة المبالغ بالريال السعودي فقط"
-    ],
-    "minors": [
-      "Investment account for those under 18 Hijri years is opened by guardian/trustee",
-      "The account is in the name of the client but operated by the guardian/trustee",
-      "CMA must see valid identity documents for both client and guardian"
-    ],
-    "minors_ar": [
-      "يُفتح الحساب الاستثماري لمن هم دون سن 18 سنة هجرية بواسطة الولي أو الوصي",
-      "يكون الحساب الاستثماري باسم العميل، ويكون تشغيله من قبل الولي أو الوصي",
-      "تطلب هيئة السوق المالية الاطلاع على مستند الهوية ساري المفعول الخاص بكل من العميل والولي أو الوصي"
-    ]
   }
 }
