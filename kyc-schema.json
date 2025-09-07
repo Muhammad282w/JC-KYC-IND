@@ -1,0 +1,943 @@
+{
+  "form_metadata": {
+    "title": "Know Your Customer (KYC) Form - Individual",
+    "title_ar": "نموذج معرفة العميل - فرد",
+    "company": "Joa Capital",
+    "company_ar": "شركة جوا المالية",
+    "license": "CMA License 21219-02",
+    "version": "2023",
+    "form_type": "individual_kyc"
+  },
+  "sections": {
+    "client_file_info": {
+      "title": "Client File Information",
+      "title_ar": "معلومات ملف العميل",
+      "order": 1,
+      "fields": {
+        "client_type": {
+          "type": "dropdown",
+          "label": "Client Type",
+          "label_ar": "نوع العميل",
+          "required": true,
+          "options": [{"value": "individual", "label": "Individual", "label_ar": "فرد"}]
+        },
+        "client_name": {
+          "type": "text",
+          "label": "Client Name",
+          "label_ar": "أسم العميل",
+          "required": true
+        },
+        "client_file_number": {
+          "type": "text",
+          "label": "Client File Number",
+          "label_ar": "رقم ملف العميل",
+          "required": true
+        },
+        "investment_account_number": {
+          "type": "text",
+          "label": "Client Investment Account Number",
+          "label_ar": "رقم الحساب الاستثماري للعميل",
+          "required": true
+        },
+        "account_currency": {
+          "type": "checkbox",
+          "label": "Account Currencies",
+          "label_ar": "عملة الحساب",
+          "required": true,
+          "options": [
+            {"value": "sar", "label": "Saudi Riyal", "label_ar": "الريال السعودي"},
+            {"value": "usd", "label": "US Dollar", "label_ar": "دولار أمريكي"},
+            {"value": "other", "label": "Other", "label_ar": "أخرى"}
+          ]
+        },
+        "other_currency": {
+          "type": "text",
+          "label": "Other Currency (Please specify)",
+          "label_ar": "عملة أخرى (يرجى التحديد)",
+          "required": false,
+          "conditional_on": "account_currency includes other"
+        },
+        "portfolio_type": {
+          "type": "radio",
+          "label": "Portfolio Type",
+          "label_ar": "نوع المحفظة",
+          "required": true,
+          "options": [
+            {"value": "local_securities", "label": "Portfolio of local securities", "label_ar": "محفظة أوراق مالية محلية"},
+            {"value": "foreign_securities", "label": "Foreign securities portfolio", "label_ar": "محفظة أوراق مالية أجنبية"},
+            {"value": "investment_funds", "label": "Investment funds portfolio", "label_ar": "استثمار صناديق"}
+          ]
+        }
+      }
+    },
+    "basic_info": {
+      "title": "Basic Information",
+      "title_ar": "البيانات الأساسية",
+      "order": 2,
+      "fields": {
+        "title": {
+          "type": "dropdown",
+          "label": "Title",
+          "label_ar": "اللقب",
+          "required": true,
+          "options": [
+            {"value": "mr", "label": "Mr.", "label_ar": "السيد"},
+            {"value": "mrs", "label": "Mrs.", "label_ar": "السيدة"},
+            {"value": "miss", "label": "Miss", "label_ar": "الآنسة"},
+            {"value": "other", "label": "Other", "label_ar": "آخر"}
+          ]
+        },
+        "first_name_ar": {
+          "type": "text",
+          "label": "First Name (Arabic)",
+          "label_ar": "الاسم الأول",
+          "required": true
+        },
+        "father_name_ar": {
+          "type": "text",
+          "label": "Father's Name (Arabic)",
+          "label_ar": "اسم الأب",
+          "required": true
+        },
+        "grandfather_name_ar": {
+          "type": "text",
+          "label": "Grandfather's Name (Arabic)",
+          "label_ar": "اسم الجد",
+          "required": true
+        },
+        "family_name_ar": {
+          "type": "text",
+          "label": "Family Name (Arabic)",
+          "label_ar": "اسم العائلة",
+          "required": true
+        },
+        "first_name_en": {
+          "type": "text",
+          "label": "First Name (English)",
+          "label_ar": "الاسم الأول بالانجليزية",
+          "required": true
+        },
+        "father_name_en": {
+          "type": "text",
+          "label": "Father's Name (English)",
+          "label_ar": "اسم الأب بالانجليزية",
+          "required": true
+        },
+        "grandfather_name_en": {
+          "type": "text",
+          "label": "Grandfather's Name (English)",
+          "label_ar": "اسم الجد بالانجليزية",
+          "required": true
+        },
+        "family_name_en": {
+          "type": "text",
+          "label": "Family Name (English)",
+          "label_ar": "اسم العائلة بالانجليزية",
+          "required": true
+        },
+        "nationality": {
+          "type": "text",
+          "label": "Nationality",
+          "label_ar": "الجنسية",
+          "required": true
+        },
+        "gender": {
+          "type": "radio",
+          "label": "Gender",
+          "label_ar": "الجنس",
+          "required": true,
+          "options": [
+            {"value": "male", "label": "Male", "label_ar": "ذكر"},
+            {"value": "female", "label": "Female", "label_ar": "انثى"}
+          ]
+        },
+        "birth_date_hijri": {
+          "type": "date",
+          "label": "Date of Birth (Hijri)",
+          "label_ar": "تاريخ الميلاد (بالهجري)",
+          "required": true
+        },
+        "birth_date_gregorian": {
+          "type": "date",
+          "label": "Date of Birth (Gregorian)",
+          "label_ar": "تاريخ الميلاد (بالميلادي)",
+          "required": true
+        },
+        "birth_country": {
+          "type": "text",
+          "label": "Country of Birth",
+          "label_ar": "دولة الميلاد",
+          "required": true
+        },
+        "birth_place": {
+          "type": "text",
+          "label": "Place of Birth",
+          "label_ar": "مكان الميلاد",
+          "required": true
+        },
+        "residence_place": {
+          "type": "text",
+          "label": "Place of Residence",
+          "label_ar": "مكان الإقامة",
+          "required": true
+        },
+        "id_type": {
+          "type": "radio",
+          "label": "ID Type",
+          "label_ar": "نوع الهوية",
+          "required": true,
+          "options": [
+            {"value": "national_id", "label": "National ID", "label_ar": "الهوية الوطنية"},
+            {"value": "iqama", "label": "Iqama", "label_ar": "اقامة"},
+            {"value": "passport", "label": "Passport", "label_ar": "جواز سفر"},
+            {"value": "other", "label": "Other", "label_ar": "أخرى"}
+          ]
+        },
+        "id_number": {
+          "type": "text",
+          "label": "ID Number",
+          "label_ar": "رقم الهوية",
+          "required": true
+        },
+        "id_expiry_date": {
+          "type": "date",
+          "label": "ID Expiry Date",
+          "label_ar": "تاريخ الانتهاء",
+          "required": true
+        },
+        "marital_status": {
+          "type": "radio",
+          "label": "Marital Status",
+          "label_ar": "الحالة الاجتماعية",
+          "required": true,
+          "options": [
+            {"value": "single", "label": "Single", "label_ar": "اعزب"},
+            {"value": "married", "label": "Married", "label_ar": "متزوج"},
+            {"value": "divorced", "label": "Divorced", "label_ar": "مطلق"},
+            {"value": "widowed", "label": "Widowed", "label_ar": "أرمل"}
+          ]
+        },
+        "number_of_dependents": {
+          "type": "number",
+          "label": "Number of Dependents",
+          "label_ar": "عدد أفراد الأسرة",
+          "required": true
+        }
+      }
+    },
+    "contact_info": {
+      "title": "Contact Details and Correspondence",
+      "title_ar": "بيانات الاتصال والمراسلة",
+      "order": 3,
+      "fields": {
+        "national_address_name": {
+          "type": "text",
+          "label": "Name (National Address)",
+          "label_ar": "الاسم",
+          "required": true
+        },
+        "national_address_district": {
+          "type": "text",
+          "label": "District",
+          "label_ar": "الحي",
+          "required": true
+        },
+        "national_address_street": {
+          "type": "text",
+          "label": "Street",
+          "label_ar": "الشارع",
+          "required": true
+        },
+        "national_address_building": {
+          "type": "text",
+          "label": "Building/Flat No.",
+          "label_ar": "رقم المبنى",
+          "required": true
+        },
+        "national_address_zipcode": {
+          "type": "text",
+          "label": "Zip Code",
+          "label_ar": "رمز البريد",
+          "required": true
+        },
+        "national_address_additional_code": {
+          "type": "text",
+          "label": "Additional Code",
+          "label_ar": "الرمز الإضافي",
+          "required": false
+        },
+        "national_address_city": {
+          "type": "text",
+          "label": "City",
+          "label_ar": "المدينة",
+          "required": true
+        },
+        "national_address_country": {
+          "type": "text",
+          "label": "Country",
+          "label_ar": "الدولة",
+          "required": true
+        },
+        "mobile_number": {
+          "type": "text",
+          "label": "Mobile Number",
+          "label_ar": "رقم الجوال",
+          "required": true
+        },
+        "other_number": {
+          "type": "text",
+          "label": "Other Number",
+          "label_ar": "رقم آخر",
+          "required": false
+        },
+        "email": {
+          "type": "email",
+          "label": "Email",
+          "label_ar": "البريد الإلكتروني",
+          "required": true
+        },
+        "correspondence_method": {
+          "type": "checkbox",
+          "label": "Correspondence Methods",
+          "label_ar": "آلية المراسلة",
+          "required": true,
+          "options": [
+            {"value": "mail", "label": "Mail", "label_ar": "بريد"},
+            {"value": "sms", "label": "SMS", "label_ar": "رسالة نصية"},
+            {"value": "email", "label": "Email", "label_ar": "بريد إلكتروني"},
+            {"value": "not_specify", "label": "Not Specified", "label_ar": "لا يوجد تحديد"}
+          ]
+        },
+        "correspondence_language": {
+          "type": "radio",
+          "label": "Correspondence Language",
+          "label_ar": "لغة المراسلات",
+          "required": true,
+          "options": [
+            {"value": "arabic", "label": "Arabic", "label_ar": "عربي"},
+            {"value": "english", "label": "English", "label_ar": "انجليزي"},
+            {"value": "not_specify", "label": "Not Specified", "label_ar": "لا يوجد تحديد"}
+          ]
+        }
+      }
+    },
+    "beneficial_owner": {
+      "title": "Beneficial Owner of The Account",
+      "title_ar": "المستفيد الحقيقي من الحساب",
+      "order": 4,
+      "fields": {
+        "is_beneficial_owner": {
+          "type": "radio",
+          "label": "Are you the beneficial owner of this account?",
+          "label_ar": "هل انت المستفيد الحقيقي لهذا الحساب؟",
+          "required": true,
+          "options": [
+            {"value": "yes", "label": "Yes", "label_ar": "نعم"},
+            {"value": "no", "label": "No", "label_ar": "لا"}
+          ]
+        },
+        "representative_capacity": {
+          "type": "checkbox",
+          "label": "Representative Capacity",
+          "label_ar": "صفة المستفيد",
+          "required": false,
+          "conditional_on": "is_beneficial_owner=no",
+          "options": [
+            {"value": "authorized_person", "label": "Authorized Person", "label_ar": "وكيل"},
+            {"value": "custodian_guardian", "label": "Custodian/Guardian", "label_ar": "وصي/ولي"},
+            {"value": "personal_reference", "label": "Personal Reference", "label_ar": "مرجع شخصي"},
+            {"value": "legal_representative", "label": "Legal Representative", "label_ar": "الممثل الشرعي للمحجوز عليه"},
+            {"value": "official_receiver", "label": "Official Receiver", "label_ar": "حارس قضائي"},
+            {"value": "others", "label": "Others", "label_ar": "أخرى"}
+          ]
+        },
+        "is_non_resident": {
+          "type": "radio",
+          "label": "Are you not resident of the Kingdom?",
+          "label_ar": "هل انت شخص غير مقيم في المملكة؟",
+          "required": true,
+          "options": [
+            {"value": "yes", "label": "Yes", "label_ar": "نعم"},
+            {"value": "no", "label": "No", "label_ar": "لا"}
+          ]
+        }
+      }
+    },
+    "tax_compliance": {
+      "title": "Self-Certification & Declaration Form (FATCA & CRS)",
+      "title_ar": "الإبلاغ الذاتي (قانون الامتثال الضريبي للحسابات الأجنبية ومعيار شهادة إقرار المشترك)",
+      "order": 5,
+      "fields": {
+        "is_us_person": {
+          "type": "radio",
+          "label": "Are you a US person?",
+          "label_ar": "هل أنت شخص من الولايات المتحدة الأمريكية؟",
+          "required": true,
+          "options": [
+            {"value": "yes", "label": "Yes", "label_ar": "نعم"},
+            {"value": "no", "label": "No", "label_ar": "لا"}
+          ]
+        },
+        "subject_to_taxes_outside_ksa": {
+          "type": "radio",
+          "label": "Are you subject to taxes in any country outside Saudi Arabia?",
+          "label_ar": "هل انت خاضع للضرائب في أي بلد أو بلدان خارج المملكة العربية السعودية؟",
+          "required": true,
+          "options": [
+            {"value": "yes", "label": "Yes", "label_ar": "نعم"},
+            {"value": "no", "label": "No", "label_ar": "لا"}
+          ]
+        },
+        "tax_country": {
+          "type": "text",
+          "label": "If yes, please identify the country",
+          "label_ar": "في حال نعم، أرجو ذكر البلد",
+          "required": false,
+          "conditional_on": "subject_to_taxes_outside_ksa=yes"
+        },
+        "has_immigrant_visa": {
+          "type": "radio",
+          "label": "Do you have an immigrant visa or permanent resident status in a country other than Saudi Arabia?",
+          "label_ar": "هل لديك تأشيرة هجرة أو إقامة دائمة في بلد آخر غير المملكة العربية السعودية؟",
+          "required": true,
+          "options": [
+            {"value": "yes", "label": "Yes", "label_ar": "نعم"},
+            {"value": "no", "label": "No", "label_ar": "لا"}
+          ]
+        },
+        "permanent_residency_status": {
+          "type": "text",
+          "label": "Please indicate the state of each permanent residency",
+          "label_ar": "يرجى توضيح الحالة لكل إقامة دائمة",
+          "required": false,
+          "conditional_on": "has_immigrant_visa=yes"
+        }
+      }
+    },
+    "us_tax_info": {
+      "title": "US Tax Information (Form 3)",
+      "title_ar": "معلومات الضريبة الأمريكية (نموذج 3)",
+      "order": 6,
+      "conditional_on": "tax_compliance.is_us_person=yes",
+      "fields": {
+        "ssn": {
+          "type": "text",
+          "label": "Social Security Number (SSN)",
+          "label_ar": "رقم الضمان الاجتماعي",
+          "required": false,
+          "pattern": "^[0-9]{3}-[0-9]{2}-[0-9]{4}$"
+        },
+        "itin": {
+          "type": "text",
+          "label": "Individual Taxpayer Identification Number (ITIN)",
+          "label_ar": "رقم تعريف المكلف",
+          "required": false,
+          "pattern": "^9[0-9]{2}-[0-9]{2}-[0-9]{4}$"
+        },
+        "atin": {
+          "type": "text",
+          "label": "Taxpayer Identification Number for Pending US Adoptions (ATIN)",
+          "label_ar": "رقم تعريف ضريبي لحالات التبني المعلقة في الولايات المتحدة الأمريكية",
+          "required": false
+        }
+      }
+    },
+    "tax_residency_info": {
+      "title": "Tax Residency Information",
+      "title_ar": "معلومات الإقامة الضريبية",
+      "order": 7,
+      "fields": {
+        "tax_residence_country_1": {
+          "type": "text",
+          "label": "Country/Jurisdiction 1",
+          "label_ar": "البلد/الولايات القضائية 1",
+          "required": false
+        },
+        "tax_id_1": {
+          "type": "text",
+          "label": "Taxpayer Identification Number 1",
+          "label_ar": "رقم التعريف الضريبي 1",
+          "required": false
+        },
+        "tax_residence_country_2": {
+          "type": "text",
+          "label": "Country/Jurisdiction 2",
+          "label_ar": "البلد/الولايات القضائية 2",
+          "required": false
+        },
+        "tax_id_2": {
+          "type": "text",
+          "label": "Taxpayer Identification Number 2",
+          "label_ar": "رقم التعريف الضريبي 2",
+          "required": false
+        },
+        "tax_residence_country_3": {
+          "type": "text",
+          "label": "Country/Jurisdiction 3",
+          "label_ar": "البلد/الولايات القضائية 3",
+          "required": false
+        },
+        "tax_id_3": {
+          "type": "text",
+          "label": "Taxpayer Identification Number 3",
+          "label_ar": "رقم التعريف الضريبي 3",
+          "required": false
+        },
+        "tin_unavailable_reason": {
+          "type": "radio",
+          "label": "If TIN not available, reason",
+          "label_ar": "في حال عدم وجود رقم التعريف الضريبي، السبب",
+          "required": false,
+          "options": [
+            {"value": "reason_a", "label": "Country does not issue TINs", "label_ar": "البلد لا تصدر أرقام تعريف ضريبية"},
+            {"value": "reason_b", "label": "Unable to obtain TIN", "label_ar": "غير قادر على الحصول على رقم تعريف ضريبي"},
+            {"value": "reason_c", "label": "No TIN required", "label_ar": "غير مطلوب رقم تعريف ضريبي"}
+          ]
+        }
+      }
+    },
+    "bank_info": {
+      "title": "Bank Information",
+      "title_ar": "معلومات البنك",
+      "order": 8,
+      "fields": {
+        "main_bank_name": {
+          "type": "text",
+          "label": "Main Bank Name",
+          "label_ar": "اسم البنك الرئيسي",
+          "required": true
+        },
+        "bank_address": {
+          "type": "text",
+          "label": "Bank Address",
+          "label_ar": "عنوان البنك",
+          "required": true
+        },
+        "bank_city_branch": {
+          "type": "text",
+          "label": "City/Branch",
+          "label_ar": "المدينة/الفرع",
+          "required": true
+        },
+        "account_holder_name": {
+          "type": "text",
+          "label": "Account Holder's Name",
+          "label_ar": "اسم صاحب الحساب",
+          "required": true
+        },
+        "account_number_iban": {
+          "type": "text",
+          "label": "Account Number (IBAN)",
+          "label_ar": "رقم الحساب (IBAN)",
+          "required": true,
+          "pattern": "^SA[0-9]{22}$"
+        }
+      }
+    },
+    "general_info": {
+      "title": "General Information",
+      "title_ar": "معلومات عامة عن العميل",
+      "order": 9,
+      "fields": {
+        "is_board_member": {
+          "type": "radio",
+          "label": "Are you a member of board of directors or audit committee or senior executive in a listed/licensed company?",
+          "label_ar": "هل انت عضو مجلس إدارة أو لجنة مراجعة أو أحد كبار التنفيذيين في شركة مدرجة أو مرخصة من هيئة السوق المالية؟",
+          "required": true,
+          "options": [
+            {"value": "yes", "label": "Yes", "label_ar": "نعم"},
+            {"value": "no", "label": "No", "label_ar": "لا"}
+          ]
+        },
+        "is_pep": {
+          "type": "radio",
+          "label": "Are you a politically exposed person or related to one?",
+          "label_ar": "هل أنت شخص شغل أو مكلف بمهمات عليا في المملكة أو في دولة أجنبية أو مناصب إدارة عليا أو وظيفة في إحدى المنظمات الدولية؟",
+          "required": true,
+          "options": [
+            {"value": "yes", "label": "Yes", "label_ar": "نعم"},
+            {"value": "no", "label": "No", "label_ar": "لا"}
+          ]
+        },
+        "owns_10_percent_or_more": {
+          "type": "radio",
+          "label": "Do you own 10% or more in any listed company?",
+          "label_ar": "هل تملك أو مساهم ب10% أو أكثر في أي شركة مدرجة؟",
+          "required": true,
+          "options": [
+            {"value": "yes", "label": "Yes", "label_ar": "نعم"},
+            {"value": "no", "label": "No", "label_ar": "لا"}
+          ]
+        }
+      }
+    },
+    "suitability_assessment": {
+      "title": "Suitability and Risk Assessment Tolerance Questionnaire",
+      "title_ar": "استبيان تقييم الملائمة وتحمل المخاطر",
+      "order": 10,
+      "fields": {
+        "education_level": {
+          "type": "radio",
+          "label": "Educational Level",
+          "label_ar": "المستوى التعليمي",
+          "required": true,
+          "options": [
+            {"value": "no_education", "label": "No Education", "label_ar": "لا يوجد", "points": 0},
+            {"value": "primary", "label": "Primary", "label_ar": "ابتدائي", "points": 1},
+            {"value": "intermediate", "label": "Intermediate", "label_ar": "متوسط", "points": 2},
+            {"value": "high_school", "label": "High School", "label_ar": "ثانوي", "points": 3},
+            {"value": "diploma", "label": "Diploma", "label_ar": "دبلوم", "points": 4},
+            {"value": "bachelor", "label": "Bachelor", "label_ar": "جامعي", "points": 5},
+            {"value": "postgraduate", "label": "Postgraduate", "label_ar": "دراسات عليا", "points": 6}
+          ]
+        },
+        "work_status": {
+          "type": "radio",
+          "label": "Work Status",
+          "label_ar": "الحالة الوظيفية",
+          "required": true,
+          "options": [
+            {"value": "unemployed", "label": "Unemployed", "label_ar": "عاطل عن العمل", "points": 0},
+            {"value": "housewife", "label": "Housewife", "label_ar": "ربة منزل", "points": 2},
+            {"value": "student", "label": "Student", "label_ar": "طالب", "points": 3},
+            {"value": "employee", "label": "Employee", "label_ar": "موظف", "points": 4},
+            {"value": "retired", "label": "Retired", "label_ar": "متقاعد", "points": 5},
+            {"value": "businessman", "label": "Businessman", "label_ar": "رجل أعمال", "points": 6}
+          ]
+        }
+      }
+    },
+    "financial_situation": {
+      "title": "Client's Financial Situation",
+      "title_ar": "الحالة المالية للعميل",
+      "order": 11,
+      "fields": {
+        "annual_income": {
+          "type": "radio",
+          "label": "Approximate Annual Income (SAR)",
+          "label_ar": "الدخل السنوي التقريبي (بالريال السعودي)",
+          "required": true,
+          "options": [
+            {"value": "100000_or_less", "label": "100,000 or less", "label_ar": "100,000 أو أقل", "points": 0},
+            {"value": "100001_to_300000", "label": "100,001 to 300,000", "label_ar": "100,001 إلى 300,000", "points": 1},
+            {"value": "300001_to_600000", "label": "300,001 to 600,000", "label_ar": "300,001 إلى 600,000", "points": 2},
+            {"value": "600001_to_1500000", "label": "600,001 to 1,500,000", "label_ar": "600,001 إلى 1,500,000", "points": 3},
+            {"value": "1500001_to_5000000", "label": "1,500,001 to 5,000,000", "label_ar": "1,500,001 إلى 5,000,000", "points": 4},
+            {"value": "5000001_to_10000000", "label": "5,000,001 to 10,000,000", "label_ar": "5,000,001 إلى 10,000,000", "points": 5},
+            {"value": "10000001_to_50000000", "label": "10,000,001 to 50,000,000", "label_ar": "10,000,001 إلى 50,000,000", "points": 6},
+            {"value": "over_50000000", "label": "Over 50,000,000", "label_ar": "أكثر من 50,000,000", "points": 7}
+          ]
+        },
+        "net_worth": {
+          "type": "radio",
+          "label": "Approximate Net Worth (SAR) (except for home)",
+          "label_ar": "صافي الثروة التقريبي (باستثناء المنزل) (بالريال السعودي)",
+          "required": true,
+          "options": [
+            {"value": "100000_or_less", "label": "100,000 or less", "label_ar": "100,000 أو أقل", "points": 0},
+            {"value": "100001_to_300000", "label": "100,001 to 300,000", "label_ar": "100,001 إلى 300,000", "points": 1
+{"value": "300001_to_600000", "label": "300,001 to 600,000", "label_ar": "300,001 إلى 600,000", "points": 2},
+            {"value": "600001_to_1500000", "label": "600,001 to 1,500,000", "label_ar": "600,001 إلى 1,500,000", "points": 3},
+            {"value": "1500001_to_5000000", "label": "1,500,001 to 5,000,000", "label_ar": "1,500,001 إلى 5,000,000", "points": 4},
+            {"value": "5000001_to_10000000", "label": "5,000,001 to 10,000,000", "label_ar": "5,000,001 إلى 10,000,000", "points": 5},
+            {"value": "10000001_to_50000000", "label": "10,000,001 to 50,000,000", "label_ar": "10,000,001 إلى 50,000,000", "points": 6},
+            {"value": "over_50000000", "label": "Over 50,000,000", "label_ar": "أكثر من 50,000,000", "points": 7}
+          ]
+        },
+        "income_source": {
+          "type": "checkbox",
+          "label": "Source of Income",
+          "label_ar": "مصادر الدخل",
+          "required": true,
+          "options": [
+            {"value": "job_salary", "label": "Job Salary", "label_ar": "راتب وظيفة"},
+            {"value": "inheritance", "label": "Inheritance", "label_ar": "إرث"},
+            {"value": "investment_returns", "label": "Return from financial investments", "label_ar": "عوائد من استثمارات"},
+            {"value": "private_business", "label": "Private Business", "label_ar": "عمل خاص"},
+            {"value": "other", "label": "Other", "label_ar": "أخرى"}
+          ]
+        },
+        "wealth_source": {
+          "type": "checkbox",
+          "label": "Sources of Wealth",
+          "label_ar": "مصادر الثروة",
+          "required": true,
+          "options": [
+            {"value": "trade_business", "label": "Trade/Free Business", "label_ar": "التجارة/الأعمال الحرة"},
+            {"value": "investment", "label": "Investment", "label_ar": "استثمارات"},
+            {"value": "other", "label": "Other", "label_ar": "أخرى"}
+          ]
+        }
+      }
+    },
+    "investment_objectives": {
+      "title": "General Investment Objectives",
+      "title_ar": "الأهداف الاستثمارية العامة",
+      "order": 12,
+      "fields": {
+        "investment_objective": {
+          "type": "radio",
+          "label": "Investment Objective",
+          "label_ar": "الهدف الاستثماري",
+          "required": true,
+          "options": [
+            {"value": "income", "label": "Income", "label_ar": "تحقيق الدخل", "points": 4},
+            {"value": "capital_growth", "label": "Growth of Capital", "label_ar": "نمو رأس المال", "points": 6},
+            {"value": "retirement_savings", "label": "Create savings for retirement", "label_ar": "تكوين مدخرات التقاعد", "points": 2},
+            {"value": "purchase_asset", "label": "Purchase an asset", "label_ar": "شراء أصل", "points": 2},
+            {"value": "capital_protection", "label": "Protection of capital", "label_ar": "حماية رأس المال", "points": 2},
+            {"value": "balanced", "label": "Balanced", "label_ar": "متوازنة", "points": 4}
+          ]
+        },
+        "preferred_assets": {
+          "type": "checkbox",
+          "label": "Preferred Investment Assets",
+          "label_ar": "الأصول الاستثمارية المفضلة للعميل",
+          "required": true,
+          "options": [
+            {"value": "sar_assets", "label": "Assets in Saudi Riyals", "label_ar": "أصول بالريال السعودي", "points": 4},
+            {"value": "foreign_currency", "label": "Assets in other foreign currencies", "label_ar": "أصول بعملات أجنبية أخرى", "points": 6},
+            {"value": "project_financing", "label": "Project financing", "label_ar": "تمويل مشروع", "points": 3}
+          ]
+        },
+        "foreign_currencies": {
+          "type": "text",
+          "label": "State the foreign currency",
+          "label_ar": "يجب إيضاح العملات الأجنبية",
+          "required": false,
+          "conditional_on": "preferred_assets includes foreign_currency"
+        },
+        "investment_period": {
+          "type": "radio",
+          "label": "Expected investment period",
+          "label_ar": "المدة التي يتوقع العميل خلالها استرداد الأموال المستثمرة",
+          "required": true,
+          "options": [
+            {"value": "short_term", "label": "Short term (Less than 1 year)", "label_ar": "مدة قصيرة المدى (أقل من سنة)", "points": 2},
+            {"value": "medium_term", "label": "Medium term (1-5 years)", "label_ar": "مدة متوسطة المدى (من سنة الى خمس سنوات)", "points": 4},
+            {"value": "long_term", "label": "Long term (More than 10 years)", "label_ar": "مدة طويلة المدى (أكثر من خمس سنوات)", "points": 6}
+          ]
+        }
+      }
+    },
+    "investment_experience": {
+      "title": "Investment Knowledge and Experience",
+      "title_ar": "المعرفة والخبرة الاستثمارية",
+      "order": 13,
+      "fields": {
+        "investment_knowledge_level": {
+          "type": "radio",
+          "label": "Investment Knowledge Level",
+          "label_ar": "مستوى المعرفة الاستثمارية",
+          "required": true,
+          "options": [
+            {"value": "low", "label": "Low", "label_ar": "منخفضة", "points": 0},
+            {"value": "medium", "label": "Medium", "label_ar": "متوسطة", "points": 4},
+            {"value": "high", "label": "High", "label_ar": "عالية", "points": 6}
+          ]
+        },
+        "risk_tolerance": {
+          "type": "radio",
+          "label": "Risk Tolerance",
+          "label_ar": "قدرة العميل على تحمل المخاطرة",
+          "required": true,
+          "options": [
+            {"value": "low", "label": "Low", "label_ar": "منخفضة", "points": 0},
+            {"value": "medium", "label": "Medium", "label_ar": "متوسطة", "points": 4},
+            {"value": "high", "label": "High", "label_ar": "عالية", "points": 6}
+          ]
+        }
+      }
+    },
+    "signature_section": {
+      "title": "Signature Section",
+      "title_ar": "قسم التوقيع",
+      "order": 14,
+      "fields": {
+        "signatory_name_arabic": {
+          "type": "text",
+          "label": "Signatory Name in Arabic",
+          "label_ar": "اسم الموقع باللغة العربية",
+          "required": true
+        },
+        "signatory_name_english": {
+          "type": "text",
+          "label": "Signatory Name in English",
+          "label_ar": "اسم الموقع باللغة الإنجليزية",
+          "required": true
+        },
+        "signatory_capacity": {
+          "type": "radio",
+          "label": "Capacity of Signatory",
+          "label_ar": "صفة الموقع",
+          "required": true,
+          "options": [
+            {"value": "account_holder", "label": "Account Holder", "label_ar": "صاحب الحساب"},
+            {"value": "power_of_attorney", "label": "Power of Attorney", "label_ar": "الوكيل"},
+            {"value": "guardian", "label": "Guardian", "label_ar": "الوصي"},
+            {"value": "other", "label": "Other", "label_ar": "أخرى"}
+          ]
+        },
+        "other_capacity": {
+          "type": "text",
+          "label": "Other Capacity (Please specify)",
+          "label_ar": "صفة أخرى (يرجى التحديد)",
+          "required": false,
+          "conditional_on": "signatory_capacity=other"
+        },
+        "signature": {
+          "type": "signature",
+          "label": "Signature",
+          "label_ar": "التوقيع",
+          "required": true
+        },
+        "signature_date": {
+          "type": "date",
+          "label": "Date (Gregorian)",
+          "label_ar": "التاريخ الميلادي",
+          "required": true
+        }
+      }
+    },
+    "acknowledgments": {
+      "title": "General Acknowledgments",
+      "title_ar": "إقرارات عامة",
+      "order": 15,
+      "fields": {
+        "information_accuracy": {
+          "type": "checkbox",
+          "label": "I certify that the information provided in this form is true, correct and complete",
+          "label_ar": "أقر بأن المعلومات التي قدمتها في هذا النموذج سليمة وصحيحة وتامة",
+          "required": true,
+          "options": [
+            {"value": "confirmed", "label": "Confirmed", "label_ar": "مؤكد"}
+          ]
+        },
+        "data_update_commitment": {
+          "type": "checkbox",
+          "label": "I acknowledge that the company will rely on the information provided and I will update my data when changes occur",
+          "label_ar": "أقر بأن الشركة سوف تعتمد على المعلومات الواردة في هذا النموذج، وفي حال حدوث أي تغيير سأقوم بتحديث بياناتي ومعلوماتي",
+          "required": true,
+          "options": [
+            {"value": "confirmed", "label": "Confirmed", "label_ar": "مؤكد"}
+          ]
+        },
+        "authorization_to_execute": {
+          "type": "checkbox",
+          "label": "I authorize the company to execute my financial and investment operations based on my request",
+          "label_ar": "أفوض الشركة بتنفيذ أوامر عملياتي المالية والاستثمارية بناء على طلبي",
+          "required": true,
+          "options": [
+            {"value": "authorized", "label": "Authorized", "label_ar": "مفوض"}
+          ]
+        },
+        "liability_waiver": {
+          "type": "checkbox",
+          "label": "I confirm that the company shall not be liable for any damages resulting from reliance on the information I provided",
+          "label_ar": "أؤكد أنه لن تكون الشركة وموظفيها مسؤولين عن أي أضرار قد تنجم من الاعتماد على المعلومات التي قدمتها",
+          "required": true,
+          "options": [
+            {"value": "confirmed", "label": "Confirmed", "label_ar": "مؤكد"}
+          ]
+        }
+      }
+    }
+  },
+  "file_uploads": {
+    "id_document": {
+      "label": "ID Document",
+      "label_ar": "وثيقة الهوية",
+      "required": true,
+      "accepted_formats": [".pdf", ".jpg", ".jpeg", ".png"],
+      "max_size": "5MB",
+      "description": "Valid proof of identity issued by governmental authority"
+    },
+    "address_proof": {
+      "label": "Address Proof Document",
+      "label_ar": "وثيقة إثبات العنوان",
+      "required": true,
+      "accepted_formats": [".pdf", ".jpg", ".jpeg", ".png"],
+      "max_size": "5MB",
+      "description": "National address document as specified in the form"
+    },
+    "income_proof": {
+      "label": "Income Proof Document",
+      "label_ar": "وثيقة إثبات الدخل",
+      "required": false,
+      "accepted_formats": [".pdf", ".jpg", ".jpeg", ".png"],
+      "max_size": "5MB",
+      "description": "Salary certificate or other income documentation"
+    }
+  },
+  "validation_rules": {
+    "required_fields_validation": {
+      "description": "All fields marked as required must be completed",
+      "description_ar": "جميع الحقول المطلوبة يجب تعبئتها"
+    },
+    "conditional_fields_validation": {
+      "description": "Conditional fields appear based on previous answers",
+      "description_ar": "الحقول الشرطية تظهر بناءً على الإجابات السابقة"
+    },
+    "email_format": {
+      "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+      "message": "Please enter a valid email address",
+      "message_ar": "يرجى إدخال عنوان بريد إلكتروني صحيح"
+    },
+    "iban_format": {
+      "pattern": "^SA[0-9]{22}$",
+      "message": "Please enter a valid Saudi IBAN (SA followed by 22 digits)",
+      "message_ar": "يرجى إدخال رقم أيبان سعودي صحيح (SA متبوعة بـ 22 رقم)"
+    },
+    "mobile_format": {
+      "pattern": "^(\\+966|0)?[5][0-9]{8}$",
+      "message": "Please enter a valid Saudi mobile number",
+      "message_ar": "يرجى إدخال رقم جوال سعودي صحيح"
+    }
+  },
+  "scoring_system": {
+    "suitability_categories": {
+      "low": {
+        "range": "0-49",
+        "label": "Low Risk - Not suitable",
+        "label_ar": "منخفض المخاطر - غير مالئم",
+        "description": "Client not suitable for high-risk investments"
+      },
+      "medium": {
+        "range": "50-100",
+        "label": "Medium Risk - Moderate suitability",
+        "label_ar": "متوسط المخاطر - ملائم بدرجة متوسطة",
+        "description": "Client suitable for moderate-risk investments"
+      },
+      "high": {
+        "range": "101+",
+        "label": "High Risk - Suitable for high-risk investments",
+        "label_ar": "مرتفع المخاطر - مالئم للاستثمارات عالية المخاطر",
+        "description": "Client suitable for high-risk investments"
+      }
+    }
+  },
+  "form_instructions": {
+    "general": [
+      "All sections must be completed using clear letters",
+      "Please ensure all contact information is correct as all correspondence will be sent to these addresses",
+      "You must provide valid proof of identity issued by governmental authority",
+      "All amounts must be expressed in Saudi Riyals only"
+    ],
+    "general_ar": [
+      "يجب إكمال كل الأجزاء باستخدام أحرف واضحة",
+      "يرجى التأكد من صحة جميع عناوين الاتصال والمراسلة الالكترونية المقدمة في هذا النموذج",
+      "يجب تقديم إثبات هوية سارية المفعول صادرة عن السلطة الحكومية",
+      "يجب التعبير عن كافة المبالغ بالريال السعودي فقط"
+    ],
+    "minors": [
+      "Investment account for those under 18 Hijri years is opened by guardian/trustee",
+      "The account is in the name of the client but operated by the guardian/trustee",
+      "CMA must see valid identity documents for both client and guardian"
+    ],
+    "minors_ar": [
+      "يُفتح الحساب الاستثماري لمن هم دون سن 18 سنة هجرية بواسطة الولي أو الوصي",
+      "يكون الحساب الاستثماري باسم العميل، ويكون تشغيله من قبل الولي أو الوصي",
+      "تطلب هيئة السوق المالية الاطلاع على مستند الهوية ساري المفعول الخاص بكل من العميل والولي أو الوصي"
+    ]
+  }
+}
